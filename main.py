@@ -17,11 +17,11 @@ def extract_content(message):
         return message.content
     return str(message)
 
-@app.post("/process_resume/")
+@app.post("/process_resume/{job_title}")
 async def process_resume(
+    job_title:str,
     resume_file: UploadFile = File(...),
     job_desc_file: UploadFile = File(...),
-    job_title: str = "AI Engineer"
 ) -> Dict[str, Any]:
     try:
         resume = (await resume_file.read()).decode("utf-8")
