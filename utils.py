@@ -1,6 +1,5 @@
 from fpdf import FPDF
 import os
-import tempfile
 
 def export_pdf(text: str, filename: str) -> str:
     os.makedirs(os.path.dirname(filename), exist_ok=True)
