@@ -3,8 +3,9 @@ from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from typing import TypedDict
+import os
 
-llm = ChatOpenAI(model="gpt-4", temperature=0.3)
+llm = ChatOpenAI(model="gpt-4", temperature=0.3, api_key=os.environ["OPENAI_API_KEY"])
 
 resume_analysis_prompt = ChatPromptTemplate.from_template("""analyze this resume:\n{resume}""")
 job_match_prompt = ChatPromptTemplate.from_template("""match resume with job:\n{resume_summary}\n{job_description}""")
