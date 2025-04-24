@@ -17,7 +17,7 @@ def extract_content(message):
         return message.content
     return str(message)
 
-@app.post("/process_resume/{job_title}")
+@app.post("/process_resume/")
 async def process_resume(
     resume_file: UploadFile = File(...),
     job_desc_file: UploadFile = File(...),
