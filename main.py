@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile, File, HTTPException
+from fastapi import FastAPI, UploadFile, File, HTTPException, Form
 from fastapi.responses import FileResponse, JSONResponse
 from typing import Dict, Any
 import os
@@ -19,9 +19,9 @@ def extract_content(message):
 
 @app.post("/process_resume/{job_title}")
 async def process_resume(
-    job_title:str,
     resume_file: UploadFile = File(...),
     job_desc_file: UploadFile = File(...),
+    job_title: str = Form(...)
 ) -> Dict[str, Any]:
     try:
         resume = (await resume_file.read()).decode("utf-8")
