@@ -68,6 +68,7 @@ def build_graph():
         )
     )
 
+    # this is my application's workflow
     builder.set_entry_point("analyze_resume")
     builder.add_edge("analyze_resume", "match_job")
     builder.add_edge("match_job", "tailor_resume")
