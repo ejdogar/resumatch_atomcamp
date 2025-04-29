@@ -3,8 +3,8 @@ from fastapi.responses import FileResponse, JSONResponse, HTMLResponse, Redirect
 from fastapi.staticfiles import StaticFiles
 from typing import Dict, Any
 import os
-from pipeline.graph import build_graph
-from utils.utils import export_pdf
+from app.pipeline.graph import build_graph
+from app.utils.utils import export_pdf
 from langchain_core.messages import AIMessage
 import tempfile
 import gradio as gr
