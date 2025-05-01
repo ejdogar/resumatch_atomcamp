@@ -3,8 +3,8 @@ from fastapi.responses import FileResponse, JSONResponse, HTMLResponse, Redirect
 from fastapi.staticfiles import StaticFiles
 from typing import Dict, Any
 import os
-from app.pipeline.graph import build_graph
-from app.utils.utils import export_pdf
+from pipeline.graph import build_graph
+from utils.utils import export_pdf
 from langchain_core.messages import AIMessage
 import tempfile
 import gradio as gr
@@ -220,10 +220,12 @@ with gr.Blocks(css=custom_css, title="resuMatch") as demo:
 # here i am moutning gradio at the root path
 app = gr.mount_gradio_app(app, demo, path="/")
 
-# Redirect root to Gradio interface
+# here i am root to Gradio interface
 @app.get("/", response_class=HTMLResponse)
 async def root():
     return RedirectResponse(url="/")
 
+# if __name__ == "__main__":
+#     uvicorn.run(app, host="0.0.0.0", port=8000)
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    demo.launch(server_name="0.0.0.0", server_port=8000)

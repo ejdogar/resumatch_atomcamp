@@ -13,11 +13,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the entire project directory into the container
 COPY . .
 
-# Set environment variables if needed
+# Set environment variables
 ENV PYTHONPATH=/app
 
 # Make port 8000 available to the world outside this container
 EXPOSE 8000
 
 # Run app.py when the container launches
-CMD ["python", "app.py"]
+# CMD ["python", "app.py"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
