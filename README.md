@@ -56,4 +56,4 @@ AI - powered Resume, Cover Letter & Pitch Generator using agentic workflows with
 
 ### 5. API Integration (Optional)
 POST /api/process_resume/
-# Payload: resume_file, job_desc_file, job_title
+Payload: resume_file, job_desc_file, job_title
